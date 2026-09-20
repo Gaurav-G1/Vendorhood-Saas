@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: vendorhood-mysql
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_DATABASE: vendorhood
+      MYSQL_USER: vendorhood_user
+      MYSQL_PASSWORD: vendorhood_pass
+      MYSQL_ROOT_PASSWORD: root_password
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  mysql_data:
